@@ -13,6 +13,7 @@ module.exports = {
         xxxs: { max: '390px'},
         xxs: { max: '590px'},
         xs: { max: '720px' },
+        xsrev: { min: '720px' },
       },
       fontFamily: {
         sans: ['Nunito Sans', 'sans-serif',],

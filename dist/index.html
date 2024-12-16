@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontaktformular & prisberegner</title>
     <!-- Link til det stylesheet, der er oprettet via Tailwind CSS -->
-    <link href="./output.css" rel="stylesheet">
+    <link href="output.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
@@ -18,49 +18,51 @@
     <header class="w-full bg-white py-9 text-lg shadow-md font-bold tracking-wide fixed z-10 xxxs:text-base">
         <nav class="flex justify-center items-center gap-10 text-blue ">
                         <!-- Link til kontaktformular -->
-            <a href="index.html" class="transition-color ease duration-300 hover:text-indigo-500 active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kontaktformular</a>
+            <a href="index.html" class="transition-color ease duration-300 hover:text-indigo-500 active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Gå til Kontaktformular">Kontaktformular</a>
                         <!-- Link til Prisberegner -->
-            <a href="prisberegner.html" class="transition-color ease duration-300 hover:text-indigo-500 active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prisberegner</a>
+            <a href="prisberegner.html" class="transition-color ease duration-300 hover:text-indigo-500 active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Gå til Prisberegner">Prisberegner</a>
         </nav>
     </header>
 
     <!-- Styling af main, der indeholder det primære indhold på siden -->
-    <main class="bg-[url('../img/hero-bg.jpg')] bg-cover bg-center pt-40 pb-44 flex justify-center px-3 xxxs:px-1">
+    <main class="bg-[url('img/hero-bg.jpg')] bg-cover bg-center pt-40 pb-44 flex justify-center px-3 xxxs:px-1">
 
         <div class="bg-[rgba(44,44,44,0.1)] backdrop-blur-xl border border-white/20 p-6 rounded-lg shadow-md w-full max-w-3xl xxxs:px-2">
-            <h2 class="text-3xl font-extrabold mb-4 text-white text-center xxs:text-[26px]">Kontakt os</h2>
-            <p class="text-white pb-9 text-lg font-semibold text-center xxs:text-base">Uanset om du har spørgsmål eller et projekt, står vi klar til at hjælpe dig.</p>
+            <h2 class="text-3xl font-extrabold mb-4 text-white xs:text-center xxs:text-[26px]">Kontakt os</h2>
+            <p class="text-white pb-9 text-lg font-semibold xs:text-center xxs:text-base">Uanset om du har spørgsmål eller et projekt, står vi klar til at hjælpe dig.</p>
             
-            <!-- Kontaktformular med justeret med aria labels og labelledby så det fungerer perfekt med skærmlæser -->
-            <div class="flex justify-center gap-14 xs:flex-col xs:items-center">
-            <form id="contactForm" action="contact_form.php" method="POST" class="space-y-4 w-[55%] xs:w-full">
+            <!-- Kontaktformular -->
+            <div class="flex justify-center gap-6 xs:flex-col xs:items-center">
+            <form id="contactForm" action="contact_form.php" method="POST" class="space-y-4 w-2/3 xxs:w-full">
                 <div>
-                    <label class="block font-medium text-white">Navn eller virksomhedsnavn *</label>
+                    <label for="name-label" class="block font-medium text-white">Navn eller virksomhedsnavn *</label>
                     <input type="text" placeholder="Indtast dit navn" name="name" id="name" required
+                        aria-labelledby="name-label"
                         class="mt-1 block w-full px-3 py-2 bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:ring-2 focus:border-indigo-500 text-white">
                 </div>
 
                 <div>
-                    <label class="block font-medium text-white">Email *</label>
+                    <label for="email-label" class="block font-medium text-white">Email *</label>
                     <input type="email" placeholder="Indtast din email" id="email" name="email" required
+                        aria-labelledby="email-label"
                         class="mt-1 block w-full px-3 py-2 bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:ring-2 focus:border-indigo-500 text-white">
                 </div>
 
                 <div>
-                    <label class="block font-medium text-white">Kontaktnummer</label>
+                    <label for="phone-label" class="block font-medium text-white">Kontaktnummer</label>
                     <input type="tel" placeholder="Indtast dit kontaktnummer" id="phone" name="phone"
-                        aria-labelledby="phone"
+                        aria-labelledby="phone-label"
                         class="mt-1 block w-full px-3 py-2 bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:ring-2 focus:border-indigo-500 text-white">
                 </div>
 
                 <div>
-                    <label class="block font-medium text-white">Besked *</label>
+                    <label for="message-label" class="block font-medium text-white">Besked *</label>
                     <textarea id="message" placeholder="Skriv din besked" name="message" rows="4" required
+                        aria-labelledby="message-label"
                         class="mt-1 block w-full px-3 py-2 bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500  focus:ring-2 focus:border-indigo-500 resize-none text-white"></textarea>
                 </div>
-          
-            <!-- Captcha der forhindrer spam og bots -->
-                <div class="g-recaptcha max-h-24" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="compact" aria-hidden="true"></div>
+
+                <div class="g-recaptcha" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L"></div>
 
                 <button type="submit"
                     class="w-36 bg-white text-blue font-semibold py-2 px-4 rounded-md transition-bg ease duration-300 hover:bg-indigo-500 hover:text-white focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none" 
@@ -71,14 +73,14 @@
             </form>
 
             <!-- Kontaktoplysninger med ikoner -->
-            <div class="text-white flex flex-col justify-center gap-4 xs:pt-3 pb-40 xs:pb-0">
+            <div class="text-white flex flex-col justify-center gap-4 xs:pt-3">
                 <span class="flex items-center gap-3">
                     <img src="../svg/telefon-ikon.svg" alt="Piktogram af en telefon" aria-hidden="true" class="w-5 h-5">
-                    <a href="tel:+4531481320" class="transition-color ease duration-300 hover:text-light-blue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Vores kontaktnummer">+45 31 48 13 20</a>
+                    <a href="tel:+4531481320" class="transition-color ease duration-300 hover:text-light-blue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">+45 31 48 13 20</a>
                 </span>
                 <span class="flex items-center gap-3">
                     <img src="../svg/kuvert.svg" alt="Piktogram af en kuvert" aria-hidden="true" class="w-5 h-5">
-                    <a href="mailto:kontakt@birkholmdigital.dk" class="transition-color ease duration-300 hover:text-light-blue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Vores email">kontakt@birkholmdigital.dk</a>
+                    <a href="mailto:kontakt@birkholmdigital.dk" class="transition-color ease duration-300 hover:text-light-blue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">kontakt@birkholmdigital.dk</a>
                 </span>
 
                 <span class="flex items-center gap-3">
@@ -86,21 +88,10 @@
                     <a href="https://www.google.com/maps/place/Kildevej+7,+7870+Roslev/" 
                        target="_blank" 
                        class="transition-color ease duration-300 hover:text-light-blue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                       aria-label="Åbn vores adresse i Google Maps">
+                       aria-label="Åbn adressen Kildevej 7, 7870 Roslev i Google Maps">
                         Kildevej 7, 7870 Roslev
                     </a>
                 </span>
-
-                <div class="container pt-6">
-                    <div class="aspect-w-16 aspect-h-9" aria-hidden="true">
-                        <iframe 
-                            class="w-full h-full rounded-lg shadow-md"
-                            src="https://www.google.com/maps?q=Kildevej+7,+7870+Roslev,+Danmark&output=embed" 
-                            allowfullscreen 
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
                 
             </div>
             
