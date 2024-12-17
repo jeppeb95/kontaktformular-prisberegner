@@ -65,7 +65,7 @@ document.getElementById('sprog').classList.remove('hidden');
 document.getElementById('seo').classList.remove('hidden');
 } else if (step === 'seo') {
 document.getElementById('result').classList.remove('hidden');
-calculatePrice(); // Beregn prisen når resultatet vises
+calculatePrice(); 
 }
 }
 
