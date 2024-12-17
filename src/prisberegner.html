@@ -9,25 +9,175 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-sans text-white">
         <!-- Header med navbar -->
     <header class="w-full bg-white py-9 text-lg shadow-md font-bold tracking-wide fixed z-10 xxxs:text-base">
-        <nav class="flex justify-center items-center gap-10 text-blue ">
+        <nav class="flex justify-center items-center gap-10 text-blue">
                         <!-- Link til kontaktformular -->
-            <a href="index.html" class="transition-color ease duration-300 hover:text-indigo-500 active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Gå til Kontaktformular">Kontaktformular</a>
+            <a href="index.html" class="transition-color ease duration-300 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Gå til Kontaktformular">Kontaktformular</a>
                         <!-- Link til Prisberegner -->
-            <a href="prisberegner.html" class="transition-color ease duration-300 hover:text-indigo-500 active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Gå til Prisberegner">Prisberegner</a>
+            <a href="prisberegner.html" class="transition-color ease duration-300 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Gå til Prisberegner">Prisberegner</a>
         </nav>
     </header>
 
     <!-- Styling af main, der indeholder det primære indhold på siden -->
-    <main class="bg-[url('../img/hero-bg.jpg')] bg-cover bg-center pt-40 pb-44 flex justify-center px-3 xxxs:px-1">
+    <main class="bg-[url('../img/hero-bg.jpg')] bg-cover bg-center pt-40 pb-44 flex justify-center px-3 xxxs:px-1 ">
+
+        <div class="bg-[rgba(44,44,44,0.1)] backdrop-blur-xl border border-white/20 py-20 px-32 rounded-lg shadow-md w-full max-w-[800px] text-center l:px-14 medi:max-w-[95%] xs:px-[4%]">
+            <h1 class="text-4xl font-extrabold mb-14 text-center xxs:text-2xl">Få en hurtig prisvurdering på dit projekt</h1>
+    
+            <!-- Prisberegner container -->
+            <div id="form-container">
+                <!-- Step 1: Valg af projekt type -->
+                <div id="step-1" class="step">
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Hvilken løsning kan vi hjælpe dig med?</h2>
+                    <div class="flex gap-4 font-bold text-lg justify-center">
+                        <button class="w-full max-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('projectType', 'hjemmeside')">Hjemmeside</button>
+                        <button class="w-full max-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('projectType', 'webshop')">Webshop</button>
+                    </div>
+                </div>
+    
+                <!-- Antal sider på hjemmeside (slider) -->
+                <div id="hjemmeside-form" class="step hidden">
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Antal sider</h2>
+                    <p class="pb-4">Vælg antallet af sider, der passer til din hjemmeside</p>
+                    <input type="range" id="extra-pages" min="5" max="100" value="0" class="w-full" onchange="updateSliderValue('extra-pages', this.value)">
+                    <p id="extra-pages-value" class="text-center">5 sider</p>
+                    <button class="mt-4 p-2 bg-indigo-500 rounded-md w-full max-w-[200px] hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('extraPages')">Næste</button>
+                </div>
+    
+                <!-- Valg af webshop type -->
+                <div id="webshop-form" class="step hidden">
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Hvilken webshop-løsning passer til dig?</h2>
+                    <p class="pb-4">Vælg den type, der matcher din virksomhed</p>
+                    <div class="flex gap-4 font-bold text-lg justify-center">
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'mindre hobbyprojekt')">Mindre hobbyprojekt</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'mellemstor webshop')">Mellemstor webshop</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'større webshop med flere ansatte')">Større webshop med flere ansatte</button>
+                    </div>
+                </div>
+    
+                <!-- Webshop: Antal produkter -->
+                <div id="antal-produkter-webshop" class="step hidden">
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Antal produkter</h2>
+                    <p class="pb-4">Angiv det ønskede antal produkter, der skal oprettes i din webshop</p>
+                    <input type="number" id="products" min="0" max="1000" value="0" class="w-full p-4 border rounded-md text-black" onchange="updateProductCount(this.value)">
+                    <p id="products-value" class="text-center mt-3">0 produkter</p>
+                    <button class="mt-4 p-2 bg-indigo-500 rounded-md w-full max-w-[200px] hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('products')">Næste</button>
+                </div>
+    
+                <!-- Valg af leveringstid -->
+                <div id="leveringstid" class="step hidden">
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Leveringstid</h2>
+                    <p class="pb-4">Vælg den leveringstid, der matcher din tidsramme</p>
+                    <div class="flex gap-4 font-bold text-lg justify-center">
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('leveringstid', '2 uger')">2 uger</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('leveringstid', '3-5 uger')">3-5 uger</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('leveringstid', '6+ uger')">6+ uger</button>
+                    </div>
+                </div>
+    
+                <!-- Valg om der skal være særlige funktioner -->
+                <div id="funktioner-webshop" class="step hidden">
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Ekstra funktioner i din webshop</h2>
+                    <p class="pb-4">Det kunne fx være abonnementsbetaling, login, søge-funktion eller en supportchat m.m.</p>
+                    <div class="flex gap-4 font-bold text-lg justify-center">
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('funktioner', 'ja')">Ja</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('funktioner', 'nej')">Nej</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('funktioner', 'ikke sikker')">Ikke sikker</button>
+                    </div>
+                </div>
+    
+                <!-- Valg om der skal være flere sprog -->
+                <div id="sprog" class="step hidden">
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Antal sprog</h2>
+                    <p class="pb-4">Skal der være flere sprog?</p>
+                    <div class="flex gap-4 font-bold text-lg justify-center">
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('sprog', 'ja')">Ja</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('sprog', 'nej')">Nej</button>
+                    </div>
+                </div>
+    
+                <!-- Valg om der skal være ekstra SEO indsats -->
+                <div id="seo" class="step hidden">
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">SEO</h2>
+                    <p class="pb-4">Skal der lægges en særlig indsats i SEO?</p>
+                    <div class="flex gap-4 font-bold text-lg justify-center">
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('seo', 'ja')">Ja</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('seo', 'nej')">Nej</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('seo', 'ikke sikker')">Ikke sikker</button>
+                    </div>
+                </div>
+    
+                <!-- Resultat på prisberegneren -->
+                <div id="result" class="step hidden flex-col itemse-center justify-center">
+                    <h2 class="text-2xl font-bold mb-4 xxs:text-xl">Din estimerede pris:</h2>
+                    <p id="price" class="text-3xl font-semibold">0 DKK</p>
+                    <img src="../img/portrait.webp" alt="Portræt af mig Jeppe Birkholm" class="rounded-full w-32 h-32 m-auto mt-10">
+                    <h2 class="text-2xl mt-10 font-bold xxs:text-xl">Lad os skabe noget fantastisk sammen</h2>
+                    <p class="text-xl xxs:text-lg">Kontakt os allerede i dag!</p>
+
+                    <!-- Kontakformular i bunden af resultatet -->
+                    <form id="contactForm" action="contact_form.php" method="POST" class="space-y-4 w-full xs:w-full mt-10">
+                        <div>
+                            <label class="block font-medium">Navn eller virksomhedsnavn *</label>
+                            <input type="text" placeholder="Indtast dit navn" name="name" id="name" required
+                                class="mt-1 block w-full px-3 py-2 bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:ring-2 focus:border-indigo-500">
+                        </div>
+        
+                        <div>
+                            <label class="block font-medium">Email *</label>
+                            <input type="email" placeholder="Indtast din email" id="email" name="email" required
+                                class="mt-1 block w-full px-3 py-2 bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:ring-2 focus:border-indigo-500">
+                        </div>
+        
+                        <div>
+                            <label class="block font-medium">Kontaktnummer</label>
+                            <input type="tel" placeholder="Indtast dit kontaktnummer" id="phone" name="phone"
+                                aria-labelledby="phone"
+                                class="mt-1 block w-full px-3 py-2 bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:ring-2 focus:border-indigo-500">
+                        </div>
+        
+                        <div>
+                            <label class="block font-medium">Besked *</label>
+                            <textarea id="message" placeholder="Skriv din besked" name="message" rows="4" required
+                                class="mt-1 block w-full px-3 py-2 bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500  focus:ring-2 focus:border-indigo-500 resize-none"></textarea>
+                        </div>
+                  
+               <!-- Captcha der forhindrer spam og bots -->
+               <div class="hidden sm:block">
+                <div class="g-recaptcha" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="normal"></div>
+              </div>
+            
+              <!-- Compact størrelse, skjult på store skærme -->
+              <div class="block sm:hidden">
+                <div class="g-recaptcha" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="compact"></div>
+              </div>
+
+        
+                        <button type="submit"
+                            class="w-36 bg-white text-blue font-semibold py-2 px-4 rounded-md transition-bg ease duration-300 hover:bg-indigo-500 hover:text-white focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none" 
+                            aria-label="Send beskeden"
+                            >
+                            Send besked
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+    
+            
+        </div>
 
     </main>
     <!-- Link til JavaScript der giver funktionaliteten til prisberegneren -->
+     <script src="prisberegner.js"></script>
+    <!-- Link til JavaScript der returnere fejlmeddelser i JS alert popup -->
+    <script src="formular-script.js"></script>
 
 </body>
 </html>

@@ -18,9 +18,9 @@
     <header class="w-full bg-white py-9 text-lg shadow-md font-bold tracking-wide fixed z-10 xxxs:text-base">
         <nav class="flex justify-center items-center gap-10 text-blue ">
                         <!-- Link til kontaktformular -->
-            <a href="index.html" class="transition-color ease duration-300 hover:text-indigo-500 active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kontaktformular</a>
+            <a href="index.html" class="transition-color ease duration-300 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kontaktformular</a>
                         <!-- Link til Prisberegner -->
-            <a href="prisberegner.html" class="transition-color ease duration-300 hover:text-indigo-500 active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prisberegner</a>
+            <a href="prisberegner.html" class="transition-color ease duration-300 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prisberegner</a>
         </nav>
     </header>
 
@@ -60,7 +60,15 @@
                 </div>
           
             <!-- Captcha der forhindrer spam og bots -->
-                <div class="g-recaptcha max-h-24" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="compact" aria-hidden="true"></div>
+                <div class="hidden sm:block">
+                    <div class="g-recaptcha" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="normal"></div>
+                  </div>
+                
+                  <!-- Compact størrelse, skjult på store skærme -->
+                  <div class="block sm:hidden">
+                    <div class="g-recaptcha" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="compact"></div>
+                  </div>
+
 
                 <button type="submit"
                     class="w-36 bg-white text-blue font-semibold py-2 px-4 rounded-md transition-bg ease duration-300 hover:bg-indigo-500 hover:text-white focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none" 
