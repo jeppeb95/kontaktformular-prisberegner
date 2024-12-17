@@ -14,6 +14,7 @@ module.exports = {
         xxs: { max: '590px'},
         xs: { max: '720px' },
         xsrev: { min: '720px' },
+        ss: { max: '780px' },
         medi: { max: '900px' },
       },
       fontFamily: {

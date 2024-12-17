@@ -54,10 +54,10 @@
                 <div id="webshop-form" class="step hidden">
                     <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Hvilken webshop-løsning passer til dig?</h2>
                     <p class="pb-4" tabindex="0">Vælg den type, der matcher din virksomhed</p>
-                    <div class="flex gap-4 font-bold text-lg justify-center">
+                    <div class="flex gap-4 font-bold text-lg justify-center ss:flex-col">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'mindre hobbyprojekt')">Mindre hobbyprojekt</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'mellemstor webshop')">Mellemstor webshop</button>
-                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'større webshop med flere ansatte')">Større webshop med flere ansatte</button>
+                        <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'større webshop med flere ansatte')">Enterprise webshop</button>
                     </div>
                 </div>
     
@@ -74,7 +74,7 @@
                 <div id="leveringstid" class="step hidden">
                     <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Leveringstid</h2>
                     <p class="pb-4" tabindex="0">Vælg den leveringstid, der matcher din tidsramme</p>
-                    <div class="flex gap-4 font-bold text-lg justify-center">
+                    <div class="flex gap-4 font-bold text-lg justify-center ss:flex-col">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('leveringstid', '2 uger')">2 uger</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('leveringstid', '3-5 uger')">3-5 uger</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('leveringstid', '6+ uger')">6+ uger</button>
@@ -85,7 +85,7 @@
                 <div id="funktioner-webshop" class="step hidden">
                     <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Ekstra funktioner i din webshop</h2>
                     <p class="pb-4" tabindex="0">Det kunne fx være abonnementsbetaling, login, søge-funktion eller en supportchat m.m.</p>
-                    <div class="flex gap-4 font-bold text-lg justify-center">
+                    <div class="flex gap-4 font-bold text-lg justify-center ss:flex-col">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('funktioner', 'ja')">Ja</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('funktioner', 'nej')">Nej</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('funktioner', 'ikke sikker')">Ikke sikker</button>
@@ -96,7 +96,7 @@
                 <div id="sprog" class="step hidden">
                     <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Antal sprog</h2>
                     <p class="pb-4" tabindex="0">Skal der være flere sprog?</p>
-                    <div class="flex gap-4 font-bold text-lg justify-center">
+                    <div class="flex gap-4 font-bold text-lg justify-center ss:flex-col">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('sprog', 'ja')">Ja</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('sprog', 'nej')">Nej</button>
                     </div>
@@ -106,7 +106,7 @@
                 <div id="seo" class="step hidden">
                     <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">SEO</h2>
                     <p class="pb-4" tabindex="0">Skal der lægges en særlig indsats i SEO?</p>
-                    <div class="flex gap-4 font-bold text-lg justify-center">
+                    <div class="flex gap-4 font-bold text-lg justify-center ss:flex-col">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('seo', 'ja')">Ja</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('seo', 'nej')">Nej</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('seo', 'ikke sikker')">Ikke sikker</button>
