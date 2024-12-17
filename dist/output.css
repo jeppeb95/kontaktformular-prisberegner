@@ -784,6 +784,14 @@ video {
   background-image: url('../img/hero-bg.jpg');
 }
 
+.bg-\[url\(\'\.\.\/img\/hero-bg\.\'\)\] {
+  background-image: url('../img/hero-bg.');
+}
+
+.bg-\[url\(\'\.\.\/img\/hero-bg\.webp\'\)\] {
+  background-image: url('../img/hero-bg.webp');
+}
+
 .bg-cover {
   background-size: cover;
 }
