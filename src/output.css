@@ -666,12 +666,20 @@ video {
   height: 16rem;
 }
 
+.h-\[136px\] {
+  height: 136px;
+}
+
 .max-h-24 {
   max-height: 6rem;
 }
 
 .max-h-\[60px\] {
   max-height: 60px;
+}
+
+.max-h-\[136px\] {
+  max-height: 136px;
 }
 
 .w-32 {

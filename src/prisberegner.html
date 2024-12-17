@@ -18,9 +18,9 @@
     <header class="w-full bg-white py-9 text-lg shadow-md font-bold tracking-wide fixed z-10 xxxs:text-base">
         <nav class="flex justify-center items-center gap-10 text-blue">
                         <!-- Link til kontaktformular -->
-            <a href="index.html" class="transition-color ease duration-300 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Gå til Kontaktformular">Kontaktformular</a>
+            <a href="index.html" class="transition-color ease duration-300 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kontaktformular</a>
                         <!-- Link til Prisberegner -->
-            <a href="prisberegner.html" class="transition-color ease duration-300 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-label="Gå til Prisberegner">Prisberegner</a>
+            <a href="prisberegner.html" class="transition-color ease duration-300 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prisberegner</a>
         </nav>
     </header>
 
@@ -34,7 +34,7 @@
             <div id="form-container">
                 <!-- Step 1: Valg af projekt type -->
                 <div id="step-1" class="step">
-                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Hvilken løsning kan vi hjælpe dig med?</h2>
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Hvilken løsning kan vi hjælpe dig med?</h2>
                     <div class="flex gap-4 font-bold text-lg justify-center">
                         <button class="w-full max-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('projectType', 'hjemmeside')">Hjemmeside</button>
                         <button class="w-full max-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('projectType', 'webshop')">Webshop</button>
@@ -43,17 +43,17 @@
     
                 <!-- Antal sider på hjemmeside (slider) -->
                 <div id="hjemmeside-form" class="step hidden">
-                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Antal sider</h2>
-                    <p class="pb-4">Vælg antallet af sider, der passer til din hjemmeside</p>
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Antal sider</h2>
+                    <p class="pb-4" tabindex="0">Vælg antallet af sider, der passer til din hjemmeside</p>
                     <input type="range" id="extra-pages" min="5" max="100" value="0" class="w-full" onchange="updateSliderValue('extra-pages', this.value)">
-                    <p id="extra-pages-value" class="text-center">5 sider</p>
+                    <p id="extra-pages-value" class="text-center" tabindex="0">5 sider</p>
                     <button class="mt-4 p-2 bg-indigo-500 rounded-md w-full max-w-[200px] hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('extraPages')">Næste</button>
                 </div>
     
                 <!-- Valg af webshop type -->
                 <div id="webshop-form" class="step hidden">
-                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Hvilken webshop-løsning passer til dig?</h2>
-                    <p class="pb-4">Vælg den type, der matcher din virksomhed</p>
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Hvilken webshop-løsning passer til dig?</h2>
+                    <p class="pb-4" tabindex="0">Vælg den type, der matcher din virksomhed</p>
                     <div class="flex gap-4 font-bold text-lg justify-center">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'mindre hobbyprojekt')">Mindre hobbyprojekt</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('webshopType', 'mellemstor webshop')">Mellemstor webshop</button>
@@ -63,8 +63,8 @@
     
                 <!-- Webshop: Antal produkter -->
                 <div id="antal-produkter-webshop" class="step hidden">
-                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Antal produkter</h2>
-                    <p class="pb-4">Angiv det ønskede antal produkter, der skal oprettes i din webshop</p>
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Antal produkter</h2>
+                    <p class="pb-4" tabindex="0">Angiv det ønskede antal produkter, der skal oprettes i din webshop</p>
                     <input type="number" id="products" min="0" max="1000" value="0" class="w-full p-4 border rounded-md text-black" onchange="updateProductCount(this.value)">
                     <p id="products-value" class="text-center mt-3">0 produkter</p>
                     <button class="mt-4 p-2 bg-indigo-500 rounded-md w-full max-w-[200px] hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('products')">Næste</button>
@@ -72,8 +72,8 @@
     
                 <!-- Valg af leveringstid -->
                 <div id="leveringstid" class="step hidden">
-                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Leveringstid</h2>
-                    <p class="pb-4">Vælg den leveringstid, der matcher din tidsramme</p>
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Leveringstid</h2>
+                    <p class="pb-4" tabindex="0">Vælg den leveringstid, der matcher din tidsramme</p>
                     <div class="flex gap-4 font-bold text-lg justify-center">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('leveringstid', '2 uger')">2 uger</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('leveringstid', '3-5 uger')">3-5 uger</button>
@@ -83,8 +83,8 @@
     
                 <!-- Valg om der skal være særlige funktioner -->
                 <div id="funktioner-webshop" class="step hidden">
-                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Ekstra funktioner i din webshop</h2>
-                    <p class="pb-4">Det kunne fx være abonnementsbetaling, login, søge-funktion eller en supportchat m.m.</p>
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Ekstra funktioner i din webshop</h2>
+                    <p class="pb-4" tabindex="0">Det kunne fx være abonnementsbetaling, login, søge-funktion eller en supportchat m.m.</p>
                     <div class="flex gap-4 font-bold text-lg justify-center">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('funktioner', 'ja')">Ja</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('funktioner', 'nej')">Nej</button>
@@ -94,8 +94,8 @@
     
                 <!-- Valg om der skal være flere sprog -->
                 <div id="sprog" class="step hidden">
-                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">Antal sprog</h2>
-                    <p class="pb-4">Skal der være flere sprog?</p>
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">Antal sprog</h2>
+                    <p class="pb-4" tabindex="0">Skal der være flere sprog?</p>
                     <div class="flex gap-4 font-bold text-lg justify-center">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('sprog', 'ja')">Ja</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('sprog', 'nej')">Nej</button>
@@ -104,8 +104,8 @@
     
                 <!-- Valg om der skal være ekstra SEO indsats -->
                 <div id="seo" class="step hidden">
-                    <h2 class="text-xl font-bold mb-4 xxs:text-lg">SEO</h2>
-                    <p class="pb-4">Skal der lægges en særlig indsats i SEO?</p>
+                    <h2 class="text-xl font-bold mb-4 xxs:text-lg" tabindex="0">SEO</h2>
+                    <p class="pb-4" tabindex="0">Skal der lægges en særlig indsats i SEO?</p>
                     <div class="flex gap-4 font-bold text-lg justify-center">
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('seo', 'ja')">Ja</button>
                         <button class="w-full min-w-[220px] p-4 bg-indigo-500 rounded-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300" onclick="nextStep('seo', 'nej')">Nej</button>
@@ -115,11 +115,11 @@
     
                 <!-- Resultat på prisberegneren -->
                 <div id="result" class="step hidden flex-col itemse-center justify-center">
-                    <h2 class="text-2xl font-bold mb-4 xxs:text-xl">Din estimerede pris:</h2>
-                    <p id="price" class="text-3xl font-semibold">0 DKK</p>
+                    <h2 class="text-2xl font-bold mb-4 xxs:text-xl" tabindex="0">Din estimerede pris:</h2>
+                    <p id="price" class="text-3xl font-semibold" tabindex="0">0 DKK</p>
                     <img src="../img/portrait.webp" alt="Portræt af mig Jeppe Birkholm" class="rounded-full w-32 h-32 m-auto mt-10">
-                    <h2 class="text-2xl mt-10 font-bold xxs:text-xl">Lad os skabe noget fantastisk sammen</h2>
-                    <p class="text-xl xxs:text-lg">Kontakt os allerede i dag!</p>
+                    <h2 class="text-2xl mt-10 font-bold xxs:text-xl" tabindex="0">Lad os skabe noget fantastisk sammen</h2>
+                    <p class="text-xl xxs:text-lg" tabindex="0">Kontakt os allerede i dag!</p>
 
                     <!-- Kontakformular i bunden af resultatet -->
                     <form id="contactForm" action="contact_form.php" method="POST" class="space-y-4 w-full xs:w-full mt-10">
@@ -149,14 +149,8 @@
                         </div>
                   
                <!-- Captcha der forhindrer spam og bots -->
-               <div class="hidden sm:block">
-                <div class="g-recaptcha" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="normal"></div>
-              </div>
-            
-              <!-- Compact størrelse, skjult på store skærme -->
-              <div class="block sm:hidden">
-                <div class="g-recaptcha" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="compact"></div>
-              </div>
+               <div class="g-recaptcha" data-sitekey="6LdFkJ0qAAAAAFOuqOiNN6cOOGBntYGsu39iGs9L" data-size="compact" aria-label="Sikkerheds verificeringsboks"></div>
+
 
         
                         <button type="submit"
